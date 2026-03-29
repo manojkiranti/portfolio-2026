@@ -32,18 +32,33 @@ export const metadata: Metadata = {
     template: "%s | Manoj Rai",
   },
   description:
-    "Portfolio of Manoj Rai — Senior Full-stack software engineer with 10+ years building scalable web apps, APIs, cloud infrastructure, and AI-powered features.",
+    "Portfolio of Manoj Rai — Senior Full-Stack Engineer with 10+ years building scalable apps, APIs, cloud infrastructure, and AI features using .NET, Node, and React.",
   keywords: [
+    // Core Identity & Location
     "Manoj Rai",
-    "Software Engineer",
+    "Senior Software Engineer",
     "Full-Stack Engineer",
-    "Fullstack Developer",
-    "Next.js Developer",
-    "React Developer",
-    "Node.js Expert",
-    "AI Engineer",
     "Kathmandu",
     "Remote Developer",
+    
+    // Frontend
+    "React Developer",
+    "Next.js Developer",
+    "Vue.js Developer",
+    
+    // Backend & API
+    "Node.js Expert",
+    "NestJS",
+    "C#",
+    ".NET Developer",
+    "PostgreSQL",
+    
+    // Cloud, DevOps & AI
+    "Azure",
+    "Docker",
+    "CI/CD",
+    "AI Engineer",
+    "LangChain"
   ],
   authors: [{ name: "Manoj Rai", url: baseUrl }],
   creator: "Manoj Rai",
@@ -53,7 +68,7 @@ export const metadata: Metadata = {
     url: baseUrl,
     title: "Manoj Rai — Senior Full-Stack Software Engineer",
     description:
-      "Full-stack engineer building scalable web apps, APIs, cloud infrastructure, and AI-powered features.",
+      "Full-stack engineer building scalable web apps, APIs, cloud infrastructure, and AI-powered features with .NET, Node.js, React, and Vue.",
     siteName: "Manoj Rai Portfolio",
     images: [
       {
@@ -68,7 +83,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Manoj Rai — Senior Full-Stack Software Engineer",
     description:
-      "Full-stack engineer building scalable web apps, APIs, cloud infrastructure, and AI-powered features.",
+      "Full-stack engineer building scalable web apps, APIs, cloud infrastructure, and AI-powered features with .NET, Node.js, React, and Vue.",
     images: ["/og-image.jpg"],
     creator: "@manojrai", // Replace with your actual twitter handle
   },
