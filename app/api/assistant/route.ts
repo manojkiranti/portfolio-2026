@@ -1,96 +1,62 @@
 import { NextRequest } from "next/server";
+import OpenAI from "openai";
+import { buildProfileString } from "@/lib/profile-context";
 
 export const runtime = "nodejs";
 
-const UPSTREAM =
-  "https://personal-llm-augjbnemfnd2h6ah.canadacentral-01.azurewebsites.net/api/query";
+const openai = new OpenAI({
+  apiKey: process.env.OPENAI_API_KEY,
+});
 
-// Try parsing JSON if it's a JSON string
-function tryParseJsonString(value: unknown): any | null {
-  if (typeof value !== "string") return null;
-  const s = value.trim();
-  if (!(s.startsWith("{") || s.startsWith("["))) return null;
+const SYSTEM_PROMPT = `You are the AI representation of Manoj Rai, a Senior Full-Stack Developer with 10+ years of experience.
 
-  try {
-    return JSON.parse(s);
-  } catch {
-    return null;
-  }
-}
+Your role is to provide users with accurate information about Manoj's skills, professional background, projects, interests, and experience. You answer as if you ARE Manoj's assistant — knowledgeable, professional, and friendly.
 
-// Extract best possible "final answer" string from many possible LangChain shapes
-function extractFinalAnswer(payload: any): string {
-  if (!payload) return "No response received.";
+Rules:
+- Respond professionally, engagingly, and concisely.
+- Use Markdown formatting when helpful (bullets, bold, headers).
+- Only answer questions related to Manoj's profile, skills, experience, projects, and career.
+- If asked something outside Manoj's professional scope, politely redirect: "I'm here to help with questions about Manoj's professional background. Feel free to ask about skills, projects, or experience!"
+- Never fabricate information. Only use what's provided in the context below.
+- Keep responses concise — aim for 2-6 sentences unless the user asks for detail.
 
-  // If upstream sends { answer: "JSON string" } — unwrap it first
-  const maybeInner = tryParseJsonString(payload.answer);
-  if (maybeInner) payload = maybeInner;
-
-  // Common patterns
-  const r = payload.result ?? payload;
-
-  // If result itself is a string
-  if (typeof r === "string" && r.trim()) return r;
-
-  // Typical keys used by chains
-  const candidates = [
-    r.output,
-    r.answer,
-    r.response,
-    r.text,
-    r.final,
-    r.content,
-    payload.output,
-    payload.answer, // (but now should be plain string, not JSON string)
-    payload.response,
-    payload.text,
-  ];
-
-  const found = candidates.find((v) => typeof v === "string" && v.trim().length > 0);
-  if (found) return found.trim();
-
-  // Sometimes it nests again, e.g. result.result.output
-  if (r?.result) {
-    const nested = extractFinalAnswer(r);
-    if (nested && nested !== "No response received.") return nested;
-  }
-
-  // Last resort: don't dump full context/documents into UI
-  return "I received a response, but couldn't find the final answer text.";
-}
+== Manoj's Profile ==
+${buildProfileString()}`;
 
 export async function POST(req: NextRequest) {
   try {
-   const { query } = await req.json();
+    const { query } = await req.json();
     const q = (query ?? "").toString().trim();
 
     if (!q) {
-      return Response.json({ answer: "Please enter a question." }, { status: 400 });
+      return Response.json(
+        { answer: "Please enter a question." },
+        { status: 400 }
+      );
     }
-     const apiKey = process.env.NEXT_PUBLIC_API_KEY;
-    const upstreamRes = await fetch(UPSTREAM, {
-      method: "POST",
-      headers: { "Content-Type": "application/json", access_token: apiKey as string, },
-      body: JSON.stringify({ query: q, chat_history: [] }),
+
+    const completion = await openai.chat.completions.create({
+      model: "gpt-4o-mini",
+      messages: [
+        { role: "system", content: SYSTEM_PROMPT },
+        { role: "user", content: q },
+      ],
+      temperature: 0.7,
+      max_tokens: 500,
     });
 
-    const contentType = upstreamRes.headers.get("content-type") ?? "";
+    const answer =
+      completion.choices[0]?.message?.content?.trim() ??
+      "No response received.";
 
-  if (contentType.includes("application/json")) {
-      const json = await upstreamRes.json();
-      const answer = extractFinalAnswer(json);
-
-      return Response.json(
-      { answer },
-      { status: upstreamRes.status, headers: { "Cache-Control": "no-store" } }
-    );
-    }
-
-
-   
-  } catch (err) {
     return Response.json(
-      { answer: "Server error calling the assistant." },
+      { answer },
+      { headers: { "Cache-Control": "no-store" } }
+    );
+  } catch (err) {
+    console.error("Assistant API error:", err);
+    return Response.json(
+      { answer: "Sorry — something went wrong. Please try again." },
       { status: 500 }
     );
   }

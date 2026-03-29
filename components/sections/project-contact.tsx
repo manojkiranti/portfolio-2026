@@ -15,28 +15,28 @@ type Project = {
 
 const FEATURED_PROJECTS: Project[] = [
   {
-    title: "Mortgage / Refinance Platform",
+    title: "AI-Powered Loan Automation",
     description:
-      "End-to-end workflow: loan comparison, amortisation schedule, document generation, and scalable APIs.",
-    stack: ["Next.js", "TypeScript", "NestJS", "Postgres", "Docker"],
-    href: "#",
-    highlight: "Product + Engineering",
+      "Intelligent pipeline leveraging LLMs and OCR to process, categorize, and relabel documents — extracting customer data to drastically cut manual review times.",
+    stack: ["React", "NestJS", "Python", "LLMs", "OCR"],
+    href: "/projects",
+    highlight: "AI + Automation",
   },
   {
-    title: "PDF Generation Pipeline",
+    title: "Omni Bank Online Banking",
     description:
-      "Reliable server-side rendering with templates, dynamic data injection, and cloud deployment automation.",
-    stack: ["NestJS", "Playwright", "Handlebars", "Azure"],
-    href: "#",
-    highlight: "Automation",
+      "Architected and led development of an online banking platform serving 1M+ customers, reducing branch visits by 25% with advanced Redis caching for high-traffic scalability.",
+    stack: ["React", "Next.js", "Node.js", "TypeScript", "MySQL", "Redis"],
+    href: "/projects",
+    highlight: "Scale + Lead",
   },
   {
-    title: "AI-Enhanced Operations Toolkit",
+    title: "Digital Customer Service Desk",
     description:
-      "Assistive workflows with structured prompts, retrieval-friendly data shapes, and clean UI integration.",
-    stack: ["Next.js", "LangChain", "Postgres"],
-    href: "#",
-    highlight: "AI",
+      "Centralized application deployed across ~200 bank branches handling 10,000+ daily customers with biometric auth and automated services.",
+    stack: ["Core Banking", "Biometrics", "PDF Generator"],
+    href: "/projects",
+    highlight: "Enterprise Impact",
   },
 ];
 
@@ -71,7 +71,15 @@ export function ProjectContact() {
           ))}
         </div>
 
-        <div className="mt-10 flex justify-center">
+        <div className="mt-10 flex justify-center gap-3">
+          <Link href="/projects">
+            <Button
+              variant="outline"
+              className="bg-transparent dark:bg-white/5 border-neutral-200 dark:border-white/20 hover:bg-neutral-50 dark:hover:bg-white/15"
+            >
+              View all projects <ArrowRight className="ml-2 h-4 w-4" />
+            </Button>
+          </Link>
           <Link href="#contact">
             <Button className="bg-neutral-900 dark:bg-white text-white dark:text-slate-900 hover:bg-neutral-800 dark:hover:bg-white/90">
               Let&apos;s build something{" "}
