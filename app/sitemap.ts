@@ -1,7 +1,7 @@
 import { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://manojrai.dev"; // Replace with your actual domain
+  const baseUrl = "https://manoj-rai.vercel.app"; // Replace with your actual domain
 
   return [
     {
@@ -10,6 +10,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 1,
     },
-    // Add more routes if you have them, e.g. /blog, /projects
   ];
 }

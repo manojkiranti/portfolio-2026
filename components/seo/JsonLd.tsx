@@ -5,10 +5,10 @@ export function JsonLd() {
     "name": "Manoj Rai",
     "url": "https://manoj-rai.vercel.app", // Replace with your actual domain
     "jobTitle": "Senior Full-Stack Software Engineer",
-    "description": "Full-stack engineer with 10+ years experience building scalable web apps, APIs, cloud infrastructure, and AI-powered features.",
+    "description": "Senior Full-stack software engineer with 10+ years building scalable web apps, APIs, cloud infrastructure, and AI-powered features with .NET, Node.js, React, and Vue.",
     "sameAs": [
-      "https://github.com/manojkiranti", // Replace with your actual GitHub
-      "https://linkedin.com/in/manoj-kiranti" // Replace with your actual LinkedIn
+      "https://github.com/manojkiranti", 
+      "https://linkedin.com/in/manoj-kiranti"
     ],
     "knowsAbout": [
       "Software Engineering",
@@ -16,8 +16,14 @@ export function JsonLd() {
       "React",
       "Node.js",
       "TypeScript",
+      ".NET",
+      "C#",
+      "Vue.js",
       "AI",
-      "Cloud Infrastructure"
+      "Cloud Infrastructure",
+      "PostgreSQL",
+      "Azure",
+      "Docker"
     ],
     "mainEntityOfPage": {
       "@type": "WebSite",
