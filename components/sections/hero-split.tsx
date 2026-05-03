@@ -41,7 +41,7 @@ const BACKEND_SKILLS: Skill[] = [
   { name: "Node.js", icon: <SiNodedotjs size={28} color="#339933" /> },
   { name: "Nest.js", icon: <SiNestjs size={28} color="#E0234E" /> },
   { name: "Python", icon: <SiPython size={28} color="#3776AB" /> },
-  { name: "Django", icon: <SiDjango size={28} color="#092E20" /> },
+  { name: "Django", icon: <SiDjango size={28} className="text-[#092E20] dark:text-[#44B78B]" /> },
   { name: "Postgres", icon: <SiPostgresql size={28} color="#4169E1" /> },
   { name: "MySQL", icon: <SiMysql size={28} color="#4479A1" /> },
   { name: "Docker", icon: <SiDocker size={28} color="#2496ED" /> },
@@ -66,14 +66,14 @@ export function HeroSplit() {
     >
       <div className="flex flex-col lg:flex-row">
       {/* LEFT: FRONTEND */}
-      <section className="w-full z-1 lg:w-1/2 bg-slate-50 dark:bg-[radial-gradient(ellipse_at_top_left,#0f172a,#0f172a,#1e1b4b)] text-neutral-900 dark:text-white p-8 sm:p-12 lg:py-24 lg:pl-24 lg:pr-56 flex flex-col justify-center relative min-h-[68vh] lg:min-h-screen">
-        {/* grid glow — dark only */}
-        <div className="hidden dark:block absolute inset-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_110%)]" />
+      <section className="w-full z-1 lg:w-1/2 bg-[linear-gradient(135deg,#f8fafc,#eef2ff)] dark:bg-[radial-gradient(ellipse_at_top_left,#0a0a0a,#0a0a0a,#1e1b4b)] text-neutral-900 dark:text-white p-8 sm:p-12 lg:py-24 lg:pl-24 lg:pr-56 flex flex-col justify-center relative min-h-auto lg:min-h-screen">
+        {/* grid glow */}
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#e2e8f020_1px,transparent_1px),linear-gradient(to_bottom,#e2e8f020_1px,transparent_1px)] dark:bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_110%)]" />
         {/* soft gradient blobs */}
-        <div className="absolute -top-24 -left-24 h-48 w-48 rounded-full bg-blue-400/5 dark:bg-blue-600/8 blur-3xl" />
-        <div className="absolute -bottom-24 -right-24 h-48 w-48 rounded-full bg-indigo-400/5 dark:bg-purple-600/8 blur-3xl" />
+        <div className="absolute -top-24 -left-24 h-64 w-64 rounded-full bg-blue-400/10 dark:bg-blue-600/8 blur-3xl" />
+        <div className="absolute -bottom-24 -right-24 h-64 w-64 rounded-full bg-indigo-400/10 dark:bg-purple-600/8 blur-3xl" />
 
-        <div className="relative z-10 flex flex-col items-center lg:items-end text-center lg:text-right space-y-7 pt-24 lg:pt-0 animate-fade-in-up">
+        <div className="relative z-10 flex flex-col items-center lg:items-end text-center lg:text-right space-y-7 pt-8 lg:pt-0 animate-fade-in-up">
           <div className="space-y-3">
             <div className="flex items-center justify-center lg:justify-end gap-2">
               <Badge className="bg-neutral-900/5 dark:bg-white/10 text-neutral-700 dark:text-white border border-neutral-200 dark:border-white/15 hover:bg-neutral-100 dark:hover:bg-white/15">
@@ -115,14 +115,14 @@ export function HeroSplit() {
       </section>
 
       {/* RIGHT: BACKEND */}
-      <section className="w-full lg:w-1/2 z-1 bg-white dark:bg-[radial-gradient(ellipse_at_bottom_right,#0f172a,#0f172a,#3b0764)] text-neutral-900 dark:text-white p-8 sm:p-12 lg:py-24 lg:pr-24 lg:pl-56 flex flex-col justify-center relative min-h-[68vh] lg:min-h-screen">
+      <section className="w-full lg:w-1/2 z-1 bg-[linear-gradient(135deg,#faf5ff,#f8fafc)] dark:bg-[radial-gradient(ellipse_at_bottom_right,#0a0a0a,#0a0a0a,#3b0764)] text-neutral-900 dark:text-white p-8 sm:p-12 lg:py-24 lg:pr-24 lg:pl-56 flex flex-col justify-center relative min-h-auto lg:min-h-screen border-t lg:border-t-0 lg:border-l border-neutral-200/50 dark:border-white/5">
         {/* circuit dots */}
-        <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.04] bg-[radial-gradient(#a5a5a5_1px,transparent_1px)] [background-size:20px_20px]" />
+        <div className="absolute inset-0 opacity-[0.04] dark:opacity-[0.04] bg-[radial-gradient(#a5a5a5_1px,transparent_1px)] [background-size:20px_20px]" />
         {/* soft gradient blobs */}
-        <div className="absolute -top-24 -right-24 h-48 w-48 rounded-full bg-purple-400/5 dark:bg-purple-600/8 blur-3xl" />
-        <div className="absolute -bottom-24 -left-24 h-48 w-48 rounded-full bg-blue-400/5 dark:bg-blue-600/6 blur-3xl" />
+        <div className="absolute -top-24 -right-24 h-64 w-64 rounded-full bg-purple-400/10 dark:bg-purple-600/8 blur-3xl" />
+        <div className="absolute -bottom-24 -left-24 h-64 w-64 rounded-full bg-blue-400/8 dark:bg-blue-600/6 blur-3xl" />
 
-        <div className="relative z-10 flex flex-col items-center lg:items-start text-center lg:text-left space-y-7 pt-10 animate-fade-in-up delay-200">
+        <div className="relative z-10 flex flex-col items-center lg:items-start text-center lg:text-left space-y-7 pt-8 animate-fade-in-up delay-200">
           <div className="space-y-3">
             <div className="flex items-center justify-center lg:justify-start gap-2">
               <Badge className="bg-neutral-900/5 dark:bg-white/10 text-neutral-700 dark:text-white border border-neutral-200 dark:border-white/15 hover:bg-neutral-100 dark:hover:bg-white/15">
@@ -168,7 +168,7 @@ export function HeroSplit() {
         </div>
       </section>
       {/* Profile card — mobile: first in flow, desktop: absolute center overlay */}
-      <div className="order-first lg:absolute lg:inset-0 z-20 flex items-center justify-center pointer-events-none py-10 pt-24 lg:py-0 lg:pt-0 bg-slate-50 dark:bg-[#0f172a] lg:bg-transparent lg:dark:bg-transparent">
+      <div className="order-first lg:absolute lg:inset-0 z-20 flex items-center justify-center pointer-events-none py-10 pt-24 lg:py-0 lg:pt-0 bg-slate-50 dark:bg-[#0a0a0a] lg:bg-transparent lg:dark:bg-transparent">
         <div className="pointer-events-auto">
           <ProfileBridgeCard />
         </div>
@@ -192,8 +192,8 @@ function SkillCard({
       className={[
         "flex flex-col items-center justify-center p-3 rounded-xl border transition-all duration-300 hover:scale-[1.03] hover:shadow-lg group",
         side === "frontend"
-          ? "bg-white dark:bg-slate-800/50 border-neutral-200 dark:border-slate-700 hover:border-blue-400 dark:hover:border-blue-500/40 hover:bg-blue-50 dark:hover:bg-slate-800"
-          : "bg-white dark:bg-slate-800/50 border-neutral-200 dark:border-slate-700 hover:border-purple-400 dark:hover:border-purple-500/40 hover:bg-purple-50 dark:hover:bg-slate-800",
+          ? "bg-white dark:bg-white/5 border-neutral-200 dark:border-white/10 hover:border-blue-400 dark:hover:border-blue-500/40 hover:bg-blue-50 dark:hover:bg-white/10"
+          : "bg-white dark:bg-white/5 border-neutral-200 dark:border-white/10 hover:border-purple-400 dark:hover:border-purple-500/40 hover:bg-purple-50 dark:hover:bg-white/10",
       ].join(" ")}
     >
       <div className="mb-2 transition-transform group-hover:-translate-y-1 duration-300">

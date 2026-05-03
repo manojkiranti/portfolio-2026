@@ -4,6 +4,7 @@ import { ArrowLeft, ExternalLink } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { SiteHeader } from "@/components/site-header";
 
 export const metadata: Metadata = {
   title: "Projects",
@@ -133,7 +134,8 @@ const PROJECTS: { category: string; items: Project[] }[] = [
 
 export default function ProjectsPage() {
   return (
-    <main className="min-h-screen bg-neutral-50 dark:bg-slate-950 text-neutral-900 dark:text-white">
+    <main className="min-h-screen bg-neutral-50 dark:bg-background text-neutral-900 dark:text-white">
+      <SiteHeader />
       <div className="mx-auto max-w-6xl px-4 py-24 sm:py-28">
         {/* Back link */}
         <Link

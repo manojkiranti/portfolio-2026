@@ -42,7 +42,7 @@ const FEATURED_PROJECTS: Project[] = [
 
 export function ProjectContact() {
   return (
-    <section className="bg-neutral-50 dark:bg-slate-950 text-neutral-900 dark:text-white">
+    <section className="bg-neutral-50 dark:bg-background text-neutral-900 dark:text-white">
       <div className="mx-auto max-w-6xl px-4 py-16 sm:py-20">
         {/* PROJECTS HEADER */}
         <div className="flex flex-col gap-3 text-center animate-fade-in-up">

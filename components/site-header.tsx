@@ -7,7 +7,7 @@ export function SiteHeader() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50">
       <div className="mx-auto max-w-6xl px-4">
-        <div className="mt-4 flex items-center justify-between rounded-2xl border border-neutral-200 dark:border-white/10 bg-white/80 dark:bg-slate-950/70 backdrop-blur-md px-5 py-3 shadow-lg shadow-black/5 dark:shadow-black/10">
+        <div className="mt-4 flex items-center justify-between rounded-2xl border border-neutral-200 dark:border-white/10 bg-white/80 dark:bg-[#0a0a0a]/80 backdrop-blur-md px-5 py-3 shadow-lg shadow-black/5 dark:shadow-black/20">
           <Link href="/" className="text-xl font-black tracking-tighter text-neutral-900 dark:text-white hover:text-neutral-600 dark:hover:text-white/80 transition">
             MR.
           </Link>

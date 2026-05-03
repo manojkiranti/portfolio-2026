@@ -3,7 +3,7 @@
 import * as React from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { Sheet, SheetContent } from "@/components/ui/sheet";
+import { Sheet, SheetContent, SheetTitle } from "@/components/ui/sheet";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Textarea } from "@/components/ui/textarea";
 import { Markdown } from "@/components/assistant/Markdown";
@@ -145,9 +145,9 @@ export function PortfolioAssistant() {
       </button>
 
       <Sheet open={open} onOpenChange={setOpen}>
-        <SheetContent className="w-[94vw] sm:w-[440px] p-0 overflow-hidden border-l border-neutral-200 dark:border-white/8 bg-neutral-50 dark:bg-[#111111] flex flex-col">
+        <SheetContent className="w-[94vw] sm:w-[440px] p-0 overflow-hidden border-l border-neutral-200 dark:border-white/8 bg-neutral-50 dark:bg-[#0a0a0a] flex flex-col">
           {/* ── Header ── */}
-          <div className="shrink-0 bg-white dark:bg-[#1a1a1a] px-4 py-4 border-b border-neutral-200 dark:border-white/8">
+          <div className="shrink-0 bg-white dark:bg-[#141414] px-4 py-4 border-b border-neutral-200 dark:border-white/8">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-3">
                 <div className="h-9 w-9 rounded-full bg-neutral-900 dark:bg-white flex items-center justify-center">
@@ -155,9 +155,9 @@ export function PortfolioAssistant() {
                 </div>
                 <div>
                   <div className="flex items-center gap-2">
-                    <span className="font-semibold text-sm text-neutral-900 dark:text-neutral-100">
+                    <SheetTitle className="font-semibold text-sm text-neutral-900 dark:text-neutral-100">
                       Portfolio Assistant
-                    </span>
+                    </SheetTitle>
                     <span className="h-2 w-2 rounded-full bg-emerald-500" />
                   </div>
                   <p className="text-xs text-neutral-500">
@@ -240,7 +240,7 @@ export function PortfolioAssistant() {
           </ScrollArea>
 
           {/* ── Composer ── */}
-          <div className="shrink-0 p-3 bg-white dark:bg-[#1a1a1a] border-t border-neutral-200 dark:border-white/8">
+          <div className="shrink-0 p-3 bg-white dark:bg-[#141414] border-t border-neutral-200 dark:border-white/8">
             <div className="flex gap-2 items-end">
               <Textarea
                 value={input}

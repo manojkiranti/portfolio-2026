@@ -12,7 +12,7 @@ export function ProfileBridgeCard() {
       {/* Subtle outer glow */}
       <div className="absolute -inset-0.5 rounded-[28px] bg-neutral-300/20 dark:bg-amber-200/5 blur-[10px]" />
 
-      <Card className="relative rounded-[28px] border-neutral-200 dark:border-white/8 bg-white dark:bg-[#1a1a1a] shadow-xl dark:shadow-[0_30px_80px_rgba(0,0,0,0.5)]">
+      <Card className="relative rounded-[28px] border-neutral-200 dark:border-white/8 bg-white dark:bg-[#141414] shadow-xl dark:shadow-[0_30px_80px_rgba(0,0,0,0.5)]">
         <div className="p-6 sm:p-7">
           {/* Top row */}
           <div className="flex items-center justify-between gap-3">
@@ -28,7 +28,7 @@ export function ProfileBridgeCard() {
           <div className="mt-5 flex flex-col items-center text-center">
             <div className="relative">
               <div className="absolute -inset-1 rounded-full bg-neutral-200/50 dark:bg-amber-400/20 blur-md" />
-              <Avatar className="relative h-28 w-28 border-[3px] border-white dark:border-[#1a1a1a] shadow-xl ring-1 ring-neutral-200 dark:ring-white/8">
+              <Avatar className="relative h-28 w-28 border-[3px] border-white dark:border-[#141414] shadow-xl ring-1 ring-neutral-200 dark:ring-white/8">
                 <AvatarImage src="/me.jpg" alt="Manoj Rai" className="object-cover" />
                 <AvatarFallback className="text-3xl font-black bg-neutral-100 dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200">
                   MR
